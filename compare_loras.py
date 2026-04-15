@@ -4,15 +4,16 @@ import random
 import warnings
 from dotenv import load_dotenv
 from transformers import logging as hf_logging
-from diffusers import AutoPipelineForText2Image
+from diffusers import AutoPipelineForText2Image, AutoPipelineForImage2Image
 
 load_dotenv()
 warnings.filterwarnings("ignore", category=FutureWarning)
 hf_logging.set_verbosity_error()
 
 LORAS = [
-    {"id": "ostris/watercolor_style_lora_sdxl", "trigger": "watercolor style, magical illustration"},
-    {"id": "goofyai/Leonardo_Ai_Style_Illustration", "trigger": "pencil sketch and ink illustration"},
+    {"id": "ostris/watercolor_style_lora_sdxl", "trigger": "watercolor style, magical illustration", "add_face_filter": False, "hires_fix": True},
+    {"id": "goofyai/Leonardo_Ai_Style_Illustration", "trigger": "pencil sketch and ink illustration", "add_face_filter": False, "hires_fix": True},
+    #{"id": "loras/polygon_lora.safetensors", "trigger": "low poly, polygonal shapes, minimal aesthetic", "add_face_filter": False, "hires_fix": True},
 ]
 
 PROMPTS = [
@@ -33,6 +34,9 @@ class LoraComparer:
             torch_dtype=self.dtype,
             variant="fp16" if self.device != "cpu" else None
         ).to(self.device)
+        
+        print(f"Loading Img2Img capabilities for Hires Fix...")
+        self.i2i_pipeline = AutoPipelineForImage2Image.from_pipe(self.pipeline)
 
     def run_comparisons(self):
         base_dir = "comparisons"
@@ -52,13 +56,18 @@ class LoraComparer:
                 # Load the unique style LoRA
                 self.pipeline.load_lora_weights(lora_id, adapter_name="style")
                 
-                # Stack the Face Fixer LoRA
-                face_lora = "Omarito2412/Rendered-Face-Detailer-SDXL"
-                self.pipeline.load_lora_weights(face_lora, adapter_name="face_fix")
+                add_face = lora.get("add_face_filter", True)
                 
-                # Combine them with specific weights
-                self.pipeline.set_adapters(["style", "face_fix"], adapter_weights=[1.0, 0.7])
-                
+                if add_face:
+                    # Stack the Face Fixer LoRA
+                    face_lora = "Omarito2412/Rendered-Face-Detailer-SDXL"
+                    self.pipeline.load_lora_weights(face_lora, adapter_name="face_fix")
+                    
+                    # Combine them with specific weights
+                    self.pipeline.set_adapters(["style", "face_fix"], adapter_weights=[1.0, 0.7])
+                else:
+                    self.pipeline.set_adapters(["style"], adapter_weights=[1.0])
+                    
             except Exception as e:
                 print(f"[{safe_name}] Error loading LoRA stack: {e}. Skipping.")
                 continue
@@ -67,9 +76,17 @@ class LoraComparer:
                 seed = random.randint(0, 2147483647)
                 generator = torch.Generator(device=self.device).manual_seed(seed)
                 full_prompt = f"{trigger}, {base_prompt}"
-                output_path = os.path.join(lora_dir, f"{p_name}_{seed}.png")
                 
-                print(f"  -> Generating {p_name} (seed: {seed})...", end=" ", flush=True)
+                tags = []
+                if add_face:
+                    tags.append("face")
+                if lora.get("hires_fix", False):
+                    tags.append("hires")
+                    
+                tag_str = "_" + "_".join(tags) if tags else ""
+                output_path = os.path.join(lora_dir, f"{p_name}_{seed}{tag_str}.png")
+                
+                print(f"  -> Generating {p_name} (seed: {seed}{tag_str})...", end=" ", flush=True)
                 
                 try:
                     image = self.pipeline(
@@ -78,6 +95,21 @@ class LoraComparer:
                         guidance_scale=0.0,
                         generator=generator
                     ).images[0]
+                    
+                    if lora.get("hires_fix", False):
+                        print("(Hires Fix)", end=" ", flush=True)
+                        w, h = image.size
+                        upscaled = image.resize((w * 2, h * 2))
+                        generator_i2i = torch.Generator(device=self.device).manual_seed(seed)
+                        
+                        image = self.i2i_pipeline(
+                            prompt=full_prompt,
+                            image=upscaled,
+                            num_inference_steps=4,
+                            strength=0.5,
+                            guidance_scale=0.0,
+                            generator=generator_i2i
+                        ).images[0]
                     
                     image.save(output_path)
                     print("Done.")
