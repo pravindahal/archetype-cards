@@ -13,6 +13,7 @@ dependencies = [
     "torch>=2.0.0",
     "torchvision>=0.15.0",
     "python-dotenv>=1.0.0",
+    "peft>=0.10.0",
 ]
 
 [build-system]
