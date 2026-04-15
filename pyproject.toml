@@ -1,0 +1,23 @@
+[project]
+name = "archetype-cards"
+version = "0.1.0"
+description = "Archetype card generator using SDXL Turbo and Tarot LoRAs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "diffusers>=0.27.2",
+    "transformers>=4.38.2",
+    "accelerate>=0.27.2",
+    "invisible-watermark>=0.2.0",
+    "safetensors>=0.4.2",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "python-dotenv>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = false
