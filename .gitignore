@@ -6,3 +6,4 @@ __pycache__/
 old_comparisons/
 comparisons/
 .DS_Store
+public/
