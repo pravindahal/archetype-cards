@@ -3,7 +3,8 @@ import torch
 import warnings
 from dotenv import load_dotenv
 from transformers import logging as hf_logging
-from diffusers import AutoPipelineForText2Image
+from diffusers import Flux2KleinPipeline, Flux2Transformer2DModel, GGUFQuantizationConfig
+from huggingface_hub import hf_hub_download
 
 # Load local environment variables from .env
 load_dotenv()
@@ -14,33 +15,65 @@ hf_logging.set_verbosity_error()
 
 class ArchetypeCardGenerator:
     """
-    A local Python wrapper for generating archetype card art using FLUX.1 [schnell].
-    FLUX.1 [schnell] allows for fast 1-4 step generation locally.
+    A local Python wrapper for generating archetype card art using FLUX.2 [klein] 4B Q6_K.
+    FLUX.2 [klein] is a distilled model that produces high-quality results in 4 steps.
     
     Prerequisites:
-      pip install diffusers transformers accelerate invisible_watermark safetensors sentencepiece
+      pip install -U diffusers transformers accelerate gguf huggingface_hub sentencepiece safetensors python-dotenv
     """
     def __init__(self):
         # Autodetect hardware (Mac M-series (mps), NVIDIA (cuda), or fallback to cpu)
         self.device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+        self.dtype = torch.bfloat16
         
-        # CPU doesn't support fp16 operations in standard PyTorch easily
-        self.dtype = torch.float16 if self.device != "cpu" else torch.float32
+        gguf_repo = "unsloth/FLUX.2-klein-4B-GGUF"
+        gguf_file = "flux-2-klein-4b-Q6_K.gguf"
+        base_model = "black-forest-labs/FLUX.2-klein-4B"
         
-        print(f"Loading FLUX.1 [schnell] Model on {self.device}...")
-        self.pipeline = AutoPipelineForText2Image.from_pretrained(
-            "black-forest-labs/FLUX.1-schnell",
-            torch_dtype=self.dtype
+        print(f"Downloading/Loading {gguf_file} from {gguf_repo}...")
+        ckpt_path = hf_hub_download(gguf_repo, gguf_file)
+        
+        print(f"Loading quantized Flux2Transformer2DModel (Q6_K GGUF)...")
+        transformer = Flux2Transformer2DModel.from_single_file(
+            ckpt_path,
+            config=base_model,
+            subfolder="transformer",
+            quantization_config=GGUFQuantizationConfig(compute_dtype=self.dtype),
+            torch_dtype=self.dtype,
+        )
+        
+        print(f"Building Flux2KleinPipeline on {self.device}...")
+        self.pipeline = Flux2KleinPipeline.from_pretrained(
+            base_model,
+            transformer=transformer,
+            torch_dtype=self.dtype,
         ).to(self.device)
             
-    def generate(self, description, output_filename, steps=4, guidance_scale=0.0):
+    def generate(self, description, output_filename, steps=4, guidance_scale=1.0):
         """
         Generates an image.
-        For FLUX.1 [schnell]:
-        - steps must be low (1 to 4 is standard).
-        - guidance_scale must be 0.0 to disable CFG.
+        For FLUX.2 [klein] distilled 4B:
+        - steps: 4 is the sweet spot (distilled model).
+        - guidance_scale: 1.0 is recommended for the distilled variant.
         """
-        full_prompt = f"{description}, tarot card style, intricate details, highly aesthetic, masterpiece"
+        style_guide = """
+            archival illustration style,
+            heavy black outlines,
+            occult aesthetic,
+            symbolic allegory,
+            central archetype,
+            flattened perspective,
+            rich saturated colors,
+            limited color palette,
+            aged parchment texture,
+            mystical semiotics,
+            intricate linework,
+            dense patterns,
+            hand-drawn quality,
+            dramatic lighting,
+            esoteric ambiance
+        """
+        full_prompt = f"{description}, {style_guide}"
         
         print(f"\nGenerating image...")
         print(f"Prompt: {full_prompt}")
@@ -63,11 +96,14 @@ if __name__ == "__main__":
     generator = ArchetypeCardGenerator()
     
     # Let's test it out using one of our 32 configurations (OCEAN - The Passionate Champion)
-    test_concept = "a charismatic and outgoing female figure carrying a glowing lantern through a swirling storm, organized and disciplined pose"
-    test_filename = "01_OCEAN_art.png"
+    test_concept = """
+    The artisan: A gentle, introspective female figure working meticulously on a beautiful, complex piece of art or illuminated manuscript in a quiet, dimly lit sanctuary. The soft, moody lighting reflects her solitary nature, deep emotional vigilance, and disciplined creativity.
+    """
+    test_filename = "05_OCEAN_art.png"
     
     generator.generate(
         description=test_concept,
         output_filename=test_filename,
-        steps=4  # Kept extremely short per FLUX.1 schnell requirements
+        steps=4,  # Distilled FLUX.2 klein produces quality results in just 4 steps
+        guidance_scale=1.0
     )
