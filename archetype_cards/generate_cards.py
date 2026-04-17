@@ -57,15 +57,14 @@ class ArchetypeCardGenerator:
         - guidance_scale: 1.0 is recommended for the distilled variant.
         """
         style_guide = """
+            close-up portrait,
             archival illustration style,
-            heavy black outlines,
             occult aesthetic,
             symbolic allegory,
             central archetype,
             flattened perspective,
             rich saturated colors,
             limited color palette,
-            aged parchment texture,
             mystical semiotics,
             intricate linework,
             dense patterns,
@@ -92,18 +91,28 @@ class ArchetypeCardGenerator:
         print(f"Success! Image saved to: {filepath}")
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate an archetype card image.")
+    parser.add_argument("--description", type=str, default=None,
+                        help="Visual concept prompt for the archetype.")
+    parser.add_argument("--output", type=str, default=None,
+                        help="Output filename (saved under card_art/).")
+    args = parser.parse_args()
+
+    # Fallback defaults when run directly without args
+    description = args.description or """
+    The sage: A tranquil, wise male figure sitting alone in a highly organized, ancient library or a
+    structured Zen garden beside a still pond. The atmosphere is profoundly peaceful, embodying quiet
+    intellectual depth, unshakeable serenity, and a sturdy, welcoming gentleness.
+    """
+    output_filename = args.output or "06_OCEAN_art.png"
+
     print("Initializing Archetype Generator...")
     generator = ArchetypeCardGenerator()
-    
-    # Let's test it out using one of our 32 configurations (OCEAN - The Passionate Champion)
-    test_concept = """
-    The artisan: A gentle, introspective female figure working meticulously on a beautiful, complex piece of art or illuminated manuscript in a quiet, dimly lit sanctuary. The soft, moody lighting reflects her solitary nature, deep emotional vigilance, and disciplined creativity.
-    """
-    test_filename = "05_OCEAN_art.png"
-    
     generator.generate(
-        description=test_concept,
-        output_filename=test_filename,
-        steps=4,  # Distilled FLUX.2 klein produces quality results in just 4 steps
+        description=description,
+        output_filename=output_filename,
+        steps=4,
         guidance_scale=1.0
     )
