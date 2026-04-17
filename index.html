@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Archetype Cards — OCEAN Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Cinzel', 'serif'],
+            body: ['Crimson Text', 'serif'],
+          },
+          colors: {
+            midnight: {
+              50: '#e8edf5',
+              100: '#c5cfe3',
+              200: '#94a7cc',
+              300: '#6a83b5',
+              400: '#3d5a8a',
+              500: '#1e3a6e',
+              600: '#162c54',
+              700: '#0f1f3d',
+              800: '#0a1528',
+              900: '#060d1a',
+            },
+            silver: '#c0cfe0',
+            ice: '#e0eaff',
+            frost: '#a8bfdb',
+            sapphire: '#2563eb',
+            crimson: '#c94040',
+            steel: '#7b93af',
+            gold: '#c9973c',
+          },
+          boxShadow: {
+            card: '0 8px 40px 0 rgba(6,13,26,0.75)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .art-frame {
+      clip-path: polygon(12% 0%, 88% 0%,
+          100% 12%, 100% 88%,
+          88% 100%, 12% 100%,
+          0% 88%, 0% 12%);
+    }
+
+    .dark-texture {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+        linear-gradient(160deg, #0f1f3d 0%, #0a1528 50%, #060d1a 100%);
+    }
+
+    .silver-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #7b93af 20%, #7b93af 80%, transparent);
+    }
+
+    .label-caps {
+      letter-spacing: 0.18em;
+    }
+
+    /* Trait pill interactions */
+    .trait-pill {
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+    .trait-pill:hover {
+      transform: scale(1.15);
+    }
+    .trait-pill:active {
+      transform: scale(0.95);
+    }
+    .trait-pill.high {
+      background: rgba(37, 99, 235, 0.8);
+      color: #e0eaff;
+    }
+    .trait-pill.low {
+      background: #162c54;
+      border: 1px solid rgba(123, 147, 175, 0.4);
+      color: rgba(168, 191, 219, 0.5);
+    }
+
+    /* Card content transitions */
+    .card-fade {
+      transition: opacity 0.35s ease;
+    }
+    .card-fade.loading {
+      opacity: 0.3;
+    }
+
+    /* Loading spinner */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .spinner {
+      animation: spin 1s linear infinite;
+      border: 2px solid rgba(37, 99, 235, 0.2);
+      border-top-color: #2563eb;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Error state */
+    .error-msg {
+      color: #c94040;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-midnight-900 p-4">
+
+  <article id="archetype-card"
+    class="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-card dark-texture font-body text-silver">
+
+    <!-- Outer ornamental border ring -->
+    <div class="absolute inset-0 rounded-2xl pointer-events-none"
+      style="box-shadow: inset 0 0 0 3px #3d5a8a, inset 0 0 0 6px rgba(37,99,235,0.15), inset 0 0 0 9px rgba(61,90,138,0.2);">
+    </div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="relative pt-6 pb-3 px-6 text-center">
+      <h1 id="archetype-name" class="font-heading text-3xl font-bold tracking-widest uppercase text-ice drop-shadow-sm card-fade">
+        The Architect
+      </h1>
+      <p id="archetype-code" class="mt-1 text-xs font-body italic text-frost/70 label-caps card-fade">OCEAn</p>
+      <div class="silver-rule mt-3"></div>
+    </header>
+
+    <!-- ═══════════════ LIGHT ATTRIBUTES ═══════════════ -->
+    <section class="px-4 pt-2 pb-2">
+      <div class="rounded-lg overflow-hidden border border-sapphire/25">
+        <div class="flex items-center gap-2 px-3 py-1.5"
+          style="background: linear-gradient(90deg, rgba(37,99,235,0.14), rgba(37,99,235,0.04));">
+          <svg class="w-3 h-3 text-sapphire flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd" />
+          </svg>
+          <span class="text-sapphire font-heading text-xs font-semibold label-caps">Light</span>
+        </div>
+        <div class="px-3 py-2 bg-midnight-700/60">
+          <p id="light-text" class="text-sm leading-snug text-silver/90 font-body card-fade">
+            Loading…
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ ART ═══════════════ -->
+    <section class="px-5 py-2">
+      <div class="relative rounded-sm overflow-hidden"
+        style="padding: 3px; background: linear-gradient(135deg, #3d5a8a, #1e3a6e, #3d5a8a, #1e3a6e);">
+        <div class="art-frame overflow-hidden bg-midnight-800 flex items-center justify-center" style="aspect-ratio: 1 / 1.05;">
+          <img id="card-art" src="" alt=""
+            class="w-full h-full object-cover object-top card-fade" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SHADOW ATTRIBUTES ═══════════════ -->
+    <section class="px-4 pt-2 pb-2">
+      <div class="rounded-lg overflow-hidden border border-crimson/25">
+        <div class="flex items-center gap-2 px-3 py-1.5"
+          style="background: linear-gradient(90deg, rgba(201,64,64,0.14), rgba(201,64,64,0.04));">
+          <svg class="w-3 h-3 text-crimson flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+          <span class="text-crimson font-heading text-xs font-semibold label-caps">Shadow</span>
+        </div>
+        <div class="px-3 py-2 bg-midnight-700/60">
+          <p id="shadow-text" class="text-sm leading-snug text-silver/90 font-body card-fade">
+            Loading…
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ TRAIT PILLS FOOTER (interactive) ═══════════════ -->
+    <footer class="px-4 pt-1 pb-5">
+      <div class="silver-rule mb-3"></div>
+
+      <div class="flex justify-center gap-1.5 flex-wrap" id="trait-nav">
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+            data-trait="O" data-high="true" onclick="toggleTrait(this)">O</div>
+          <span class="text-[9px] text-frost/50 label-caps">Open</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+            data-trait="C" data-high="true" onclick="toggleTrait(this)">C</div>
+          <span class="text-[9px] text-frost/50 label-caps">Consc.</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+            data-trait="E" data-high="true" onclick="toggleTrait(this)">E</div>
+          <span class="text-[9px] text-frost/50 label-caps">Extrov.</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+            data-trait="A" data-high="true" onclick="toggleTrait(this)">A</div>
+          <span class="text-[9px] text-frost/50 label-caps">Agree.</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill low"
+            data-trait="N" data-high="false" onclick="toggleTrait(this)">n</div>
+          <span class="text-[9px] text-frost/50 label-caps">Neurot.</span>
+        </div>
+
+      </div>
+    </footer>
+
+  </article>
+
+  <script>
+    // ─── Archetype lookup table: OCEAN code → { index, name, filename prefix } ───
+    const ARCHETYPES = {
+      'OCEAN':  { idx: '01', name: 'The Visionary',       file: '01_Visionary_OCEAN' },
+      'OCEAn':  { idx: '02', name: 'The Architect',       file: '02_Architect_OCEAn' },
+      'OCEaN':  { idx: '03', name: 'The Commander',       file: '03_Commander_OCEaN' },
+      'OCEan':  { idx: '04', name: 'The Mastermind',      file: '04_Mastermind_OCEan' },
+      'OCeAN':  { idx: '05', name: 'The Artisan',         file: '05_Artisan_OCeAN' },
+      'OCeAn':  { idx: '06', name: 'The Sage',            file: '06_Sage_OCeAn' },
+      'OCeaN':  { idx: '07', name: 'The Specialist',      file: '07_Specialist_OCeaN' },
+      'OCean':  { idx: '08', name: 'The Scholar',         file: '08_Scholar_OCean' },
+      'OcEAN':  { idx: '09', name: 'The Empath',          file: '09_Empath_OcEAN' },
+      'OcEAn':  { idx: '10', name: 'The Optimist',        file: '10_Optimist_OcEAn' },
+      'OcEaN':  { idx: '11', name: 'The Rebel',           file: '11_Rebel_OcEaN' },
+      'OcEan':  { idx: '12', name: 'The Maverick',        file: '12_Maverick_OcEan' },
+      'OceAN':  { idx: '13', name: 'The Dreamer',         file: '13_Dreamer_OceAN' },
+      'OceAn':  { idx: '14', name: 'The Hermit',          file: '14_Hermit_OceAn' },
+      'OceaN':  { idx: '15', name: 'The Eccentric',       file: '15_Eccentric_OceaN' },
+      'Ocean':  { idx: '16', name: 'The Realist',         file: '16_Realist_Ocean' },
+      'oCEAN':  { idx: '17', name: 'The Guardian',        file: '17_Guardian_oCEAN' },
+      'oCEAn':  { idx: '18', name: 'The Provider',        file: '18_Provider_oCEAn' },
+      'oCEaN':  { idx: '19', name: 'The Perfectionist',   file: '19_Perfectionist_oCEaN' },
+      'oCEan':  { idx: '20', name: 'The Executive',       file: '20_Executive_oCEan' },
+      'oCeAN':  { idx: '21', name: 'The Caretaker',       file: '21_Caretaker_oCeAN' },
+      'oCeAn':  { idx: '22', name: 'The Anchor',          file: '22_Anchor_oCeAn' },
+      'oCeaN':  { idx: '23', name: 'The Skeptic',         file: '23_Skeptic_oCeaN' },
+      'oCean':  { idx: '24', name: 'The Pragmatist',      file: '24_Pragmatist_oCean' },
+      'ocEAN':  { idx: '25', name: 'The Enthusiast',      file: '25_Enthusiast_ocEAN' },
+      'ocEAn':  { idx: '26', name: 'The Merrymaker',      file: '26_Merrymaker_ocEAn' },
+      'ocEaN':  { idx: '27', name: 'The Critic',          file: '27_Critic_ocEaN' },
+      'ocEan':  { idx: '28', name: 'The Joker',           file: '28_Joker_ocEan' },
+      'oceAN':  { idx: '29', name: 'The Gentle Soul',     file: '29_Gentle_Soul_oceAN' },
+      'oceAn':  { idx: '30', name: 'The Steward',         file: '30_Steward_oceAn' },
+      'oceaN':  { idx: '31', name: 'The Lost Soul',       file: '31_Lost_Soul_oceaN' },
+      'ocean':  { idx: '32', name: 'The Outlaw',          file: '32_The_Outlaw_ocean' },
+    };
+
+    // ─── DOM refs ───
+    const elName       = document.getElementById('archetype-name');
+    const elCode       = document.getElementById('archetype-code');
+    const elLight      = document.getElementById('light-text');
+    const elShadow     = document.getElementById('shadow-text');
+    const elArt        = document.getElementById('card-art');
+    const fadeEls      = document.querySelectorAll('.card-fade');
+
+    // ─── Build the current OCEAN code from pill states ───
+    function getCurrentCode() {
+      const pills = document.querySelectorAll('.trait-pill');
+      return Array.from(pills).map(p => {
+        const letter = p.dataset.trait;
+        const high   = p.dataset.high === 'true';
+        return high ? letter.toUpperCase() : letter.toLowerCase();
+      }).join('');
+    }
+
+    // ─── Toggle a single trait pill ───
+    function toggleTrait(el) {
+      const isHigh = el.dataset.high === 'true';
+      const newHigh = !isHigh;
+      el.dataset.high = String(newHigh);
+
+      const letter = el.dataset.trait;
+      el.textContent = newHigh ? letter.toUpperCase() : letter.toLowerCase();
+      el.classList.toggle('high', newHigh);
+      el.classList.toggle('low', !newHigh);
+
+      loadArchetype(getCurrentCode());
+    }
+
+    // ─── Parse light/shadow from the markdown text ───
+    function parseAttributes(md) {
+      let light = '', shadow = '';
+
+      const lightMatch = md.match(/\*\*Light Attributes:\*\*\s*(.+)/);
+      if (lightMatch) light = lightMatch[1].trim();
+
+      const shadowMatch = md.match(/\*\*Shadow Attributes:\*\*\s*(.+)/);
+      if (shadowMatch) shadow = shadowMatch[1].trim();
+
+      return { light, shadow };
+    }
+
+    // ─── Load an archetype by its OCEAN code ───
+    async function loadArchetype(code) {
+      const entry = ARCHETYPES[code];
+      if (!entry) {
+        elName.textContent = '???';
+        elCode.textContent = code;
+        elLight.textContent  = 'No archetype found for this combination.';
+        elShadow.textContent = '';
+        elArt.src = '';
+        return;
+      }
+
+      // Start fade
+      fadeEls.forEach(el => el.classList.add('loading'));
+
+      // Update header immediately
+      elName.textContent = entry.name;
+      elCode.textContent = code;
+      document.title = `${entry.name} — ${code}`;
+
+      // Update hash without triggering reload
+      history.replaceState(null, '', `#${code}`);
+
+      // Load image
+      elArt.src = `card_art/${entry.file}.png`;
+      elArt.alt = entry.name;
+
+      // Load markdown
+      try {
+        const resp = await fetch(`archetypes/${entry.file}.md`);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const md = await resp.text();
+        const { light, shadow } = parseAttributes(md);
+        elLight.textContent  = light  || 'No light attributes found.';
+        elShadow.textContent = shadow || 'No shadow attributes found.';
+      } catch (err) {
+        elLight.textContent  = 'Could not load attributes.';
+        elShadow.textContent = err.message;
+      }
+
+      // End fade
+      fadeEls.forEach(el => el.classList.remove('loading'));
+    }
+
+    // ─── Set pill states from a code string ───
+    function setPillsFromCode(code) {
+      const pills = document.querySelectorAll('.trait-pill');
+      const letters = code.split('');
+      pills.forEach((pill, i) => {
+        const ch = letters[i];
+        const high = ch === ch.toUpperCase();
+        pill.dataset.high = String(high);
+        pill.textContent = ch;
+        pill.classList.toggle('high', high);
+        pill.classList.toggle('low', !high);
+      });
+    }
+
+    // ─── Init: load from hash or default to OCEAn ───
+    (function init() {
+      let code = location.hash.slice(1);
+      if (!ARCHETYPES[code]) code = 'OCEAn';
+      setPillsFromCode(code);
+      loadArchetype(code);
+    })();
+  </script>
+
+</body>
+
+</html>
