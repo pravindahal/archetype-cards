@@ -14,11 +14,11 @@ hf_logging.set_verbosity_error()
 
 class ArchetypeCardGenerator:
     """
-    A local Python wrapper for generating archetype card art using SDXL Turbo and a Tarot LoRA.
-    SDXL Turbo allows for blazing-fast 1-4 step generation locally.
+    A local Python wrapper for generating archetype card art using FLUX.1 [schnell].
+    FLUX.1 [schnell] allows for fast 1-4 step generation locally.
     
     Prerequisites:
-      pip install diffusers transformers accelerate invisible_watermark safetensors
+      pip install diffusers transformers accelerate invisible_watermark safetensors sentencepiece
     """
     def __init__(self):
         # Autodetect hardware (Mac M-series (mps), NVIDIA (cuda), or fallback to cpu)
@@ -27,33 +27,20 @@ class ArchetypeCardGenerator:
         # CPU doesn't support fp16 operations in standard PyTorch easily
         self.dtype = torch.float16 if self.device != "cpu" else torch.float32
         
-        print(f"Loading SDXL Turbo Base Model on {self.device}...")
+        print(f"Loading FLUX.1 [schnell] Model on {self.device}...")
         self.pipeline = AutoPipelineForText2Image.from_pretrained(
-            "stabilityai/sdxl-turbo",
-            torch_dtype=self.dtype,
-            variant="fp16" if self.device != "cpu" else None
+            "black-forest-labs/FLUX.1-schnell",
+            torch_dtype=self.dtype
         ).to(self.device)
-        
-        print("Loading Hugging Face Tarot LoRA...")
-        try:
-            # multimodalart/tarot-z-image-lora is widely available and trained for SDXL 
-            self.pipeline.load_lora_weights("multimodalart/tarot-z-image-lora")
-            # Optionally fuse the weights for slightly faster inference:
-            # self.pipeline.fuse_lora(lora_scale=1.0)
-            print("LoRA successfully loaded!")
-        except Exception as e:
-            print(f"Warning: Could not load LoRA. Falling back to base model. Error: {e}")
             
     def generate(self, description, output_filename, steps=4, guidance_scale=0.0):
         """
         Generates an image.
-        For SDXL Turbo:
+        For FLUX.1 [schnell]:
         - steps must be low (1 to 4 is standard).
-        - guidance_scale must be 0.0 to disable CFG (as Turbo models are distilled).
+        - guidance_scale must be 0.0 to disable CFG.
         """
-        # "trtcrd" is the trigger word for this specific LoRA to force the tarot aesthetic
-        # We append "tarot card style" just to strengthen it natively globally too.
-        full_prompt = f"trtcrd tarot card style, {description}, intricate details, highly aesthetic, masterpiece"
+        full_prompt = f"{description}, tarot card style, intricate details, highly aesthetic, masterpiece"
         
         print(f"\nGenerating image...")
         print(f"Prompt: {full_prompt}")
@@ -82,5 +69,5 @@ if __name__ == "__main__":
     generator.generate(
         description=test_concept,
         output_filename=test_filename,
-        steps=4  # Kept extremely short per SDXL Turbo requirements
+        steps=4  # Kept extremely short per FLUX.1 schnell requirements
     )

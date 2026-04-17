@@ -1,7 +1,7 @@
 [project]
 name = "archetype-cards"
 version = "0.1.0"
-description = "Archetype card generator using SDXL Turbo and Tarot LoRAs"
+description = "Archetype card generator using FLUX.1 [schnell]"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
