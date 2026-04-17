@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>The Architect — OCEAn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Cinzel', 'serif'],
+            body: ['Crimson Text', 'serif'],
+          },
+          colors: {
+            parchment: {
+              50: '#fdf8ee',
+              100: '#f7edcf',
+              200: '#edd9a3',
+            },
+            ink: '#1c1007',
+            ochre: '#b5742a',
+            crimson: '#8b1a1a',
+            shadow: '#2b1d0e',
+            gold: '#c9973c',
+            sage: '#4a6741',
+            dusk: '#3d2c5e',
+          },
+          boxShadow: {
+            card: '0 8px 40px 0 rgba(28,16,7,0.55)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Decorative border using a repeating SVG-style gradient */
+    .card-border {
+      background:
+        repeating-linear-gradient(0deg,
+          transparent, transparent 6px,
+          rgba(201, 151, 60, 0.15) 6px, rgba(201, 151, 60, 0.15) 7px),
+        repeating-linear-gradient(90deg,
+          transparent, transparent 6px,
+          rgba(201, 151, 60, 0.15) 6px, rgba(201, 151, 60, 0.15) 7px);
+    }
+
+    /* Octagonal clip matching the reference card's art frame */
+    .art-frame {
+      clip-path: polygon(12% 0%, 88% 0%,
+          100% 12%, 100% 88%,
+          88% 100%, 12% 100%,
+          0% 88%, 0% 12%);
+    }
+
+    /* Subtle parchment texture overlay */
+    .parchment-texture {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+        linear-gradient(160deg, #fdf6e3 0%, #f0ddb0 50%, #e8cc8a 100%);
+    }
+
+    /* Gold rule divider */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9973c 20%, #c9973c 80%, transparent);
+    }
+
+    /* Letter-spacing for section pill labels */
+    .label-caps {
+      letter-spacing: 0.18em;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-shadow p-4">
+
+  <!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  ARCHETYPE CARD  —  mobile-first, ~375px wide            ║
+  ╚══════════════════════════════════════════════════════════╝
+  -->
+  <article id="archetype-card"
+    class="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-card parchment-texture font-body text-ink">
+
+    <!-- ── Outer ornamental border ring ── -->
+    <div class="absolute inset-0 rounded-2xl pointer-events-none"
+      style="box-shadow: inset 0 0 0 3px #c9973c, inset 0 0 0 6px rgba(201,151,60,0.3), inset 0 0 0 9px #c9973c33;">
+    </div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="relative pt-6 pb-3 px-6 text-center">
+
+      <!-- OCEAN code badge -->
+      <div class="inline-flex gap-1 mb-2">
+        <!-- Each letter = one trait pill; uppercase = high, lowercase = low -->
+        <span
+          class="w-6 h-6 rounded-full bg-ochre  text-parchment-50 text-xs font-heading flex items-center justify-center font-bold shadow">O</span>
+        <span
+          class="w-6 h-6 rounded-full bg-ochre  text-parchment-50 text-xs font-heading flex items-center justify-center font-bold shadow">C</span>
+        <span
+          class="w-6 h-6 rounded-full bg-ochre  text-parchment-50 text-xs font-heading flex items-center justify-center font-bold shadow">E</span>
+        <span
+          class="w-6 h-6 rounded-full bg-ochre  text-parchment-50 text-xs font-heading flex items-center justify-center font-bold shadow">A</span>
+        <span
+          class="w-6 h-6 rounded-full bg-parchment-200 text-ink/60 text-xs font-heading flex items-center justify-center font-bold shadow border border-ochre/40">n</span>
+      </div>
+
+      <!-- Archetype name -->
+      <h1 class="font-heading text-3xl font-bold tracking-widest uppercase text-crimson drop-shadow-sm">
+        The Architect
+      </h1>
+
+      <!-- Gender tag -->
+      <p class="mt-1 text-xs font-body italic text-ink/60 label-caps">Male · OCEAn</p>
+
+      <div class="gold-rule mt-3"></div>
+    </header>
+
+
+    <!-- ═══════════════ ART ═══════════════ -->
+    <section class="px-5 py-2">
+      <!-- Octagonal art frame with gold border -->
+      <div class="relative rounded-sm overflow-hidden"
+        style="padding: 3px; background: linear-gradient(135deg, #c9973c, #8b5e22, #c9973c, #8b5e22);">
+        <div class="art-frame overflow-hidden bg-shadow" style="aspect-ratio: 1 / 1.05;">
+          <img src="card_art/02_Architect_OCEAn.png" alt="The Architect"
+            class="w-full h-full object-cover object-top" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════ ATTRIBUTES ═══════════════ -->
+    <section class="px-4 pt-3 pb-2 space-y-3">
+
+      <!-- ── Light Attributes ── -->
+      <div class="rounded-lg overflow-hidden border border-gold/30">
+        <!-- Compact label bar -->
+        <div class="flex items-center gap-2 px-3 py-1.5"
+          style="background: linear-gradient(90deg, rgba(74,103,65,0.18), rgba(74,103,65,0.06));">
+          <!-- Sun icon -->
+          <svg class="w-3 h-3 text-sage flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd" />
+          </svg>
+          <span class="text-sage font-heading text-xs font-semibold label-caps">Light</span>
+        </div>
+        <!-- Content -->
+        <div class="px-3 py-2 bg-parchment-50/60">
+          <p class="text-sm leading-snug text-ink/85 font-body">
+            Visionary and creative, highly organized and disciplined, naturally charismatic, deeply empathetic, and
+            unshakably calm under pressure.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── Shadow Attributes ── -->
+      <div class="rounded-lg overflow-hidden border border-crimson/25">
+        <!-- Compact label bar -->
+        <div class="flex items-center gap-2 px-3 py-1.5"
+          style="background: linear-gradient(90deg, rgba(139,26,26,0.14), rgba(139,26,26,0.04));">
+          <!-- Moon icon -->
+          <svg class="w-3 h-3 text-crimson flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+          <span class="text-crimson font-heading text-xs font-semibold label-caps">Shadow</span>
+        </div>
+        <!-- Content -->
+        <div class="px-3 py-2 bg-parchment-50/60">
+          <p class="text-sm leading-snug text-ink/85 font-body">
+            Can appear emotionally detached to the point of apathy, perfectionistic, and may unintentionally overextend
+            themselves pleasing others while ignoring their own limits.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════ TRAIT PILLS FOOTER ═══════════════ -->
+    <footer class="px-4 pt-1 pb-5">
+      <div class="gold-rule mb-3"></div>
+
+      <!-- Five trait pills showing High/Low for each dimension -->
+      <div class="flex justify-center gap-1.5 flex-wrap">
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div
+            class="w-8 h-8 rounded-full bg-ochre/90 text-parchment-50 flex items-center justify-center text-xs font-heading font-bold shadow-sm">
+            O</div>
+          <span class="text-[9px] text-ink/50 label-caps">Open</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div
+            class="w-8 h-8 rounded-full bg-ochre/90 text-parchment-50 flex items-center justify-center text-xs font-heading font-bold shadow-sm">
+            C</div>
+          <span class="text-[9px] text-ink/50 label-caps">Consc.</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div
+            class="w-8 h-8 rounded-full bg-ochre/90 text-parchment-50 flex items-center justify-center text-xs font-heading font-bold shadow-sm">
+            E</div>
+          <span class="text-[9px] text-ink/50 label-caps">Extrov.</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div
+            class="w-8 h-8 rounded-full bg-ochre/90 text-parchment-50 flex items-center justify-center text-xs font-heading font-bold shadow-sm">
+            A</div>
+          <span class="text-[9px] text-ink/50 label-caps">Agree.</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-0.5">
+          <div
+            class="w-8 h-8 rounded-full bg-parchment-200 border border-ochre/40 text-ink/50 flex items-center justify-center text-xs font-heading font-bold shadow-sm">
+            n</div>
+          <span class="text-[9px] text-ink/50 label-caps">Neurot.</span>
+        </div>
+
+      </div>
+    </footer>
+
+  </article>
+
+</body>
+
+</html>
