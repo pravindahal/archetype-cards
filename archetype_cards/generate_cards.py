@@ -87,6 +87,17 @@ class ArchetypeCardGenerator:
         # Save output
         os.makedirs("card_art", exist_ok=True)
         filepath = os.path.join("card_art", output_filename)
+
+        # Back up any existing file with an incrementing number (foo.png → foo.1.png → foo.2.png …)
+        if os.path.exists(filepath):
+            stem, ext = os.path.splitext(filepath)
+            n = 1
+            while os.path.exists(f"{stem}.{n}{ext}"):
+                n += 1
+            backup = f"{stem}.{n}{ext}"
+            os.rename(filepath, backup)
+            print(f"Backed up existing image to: {backup}")
+
         image.save(filepath)
         print(f"Success! Image saved to: {filepath}")
 
