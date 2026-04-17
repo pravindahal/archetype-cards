@@ -76,16 +76,20 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       user-select: none;
     }
+
     .trait-pill:hover {
       transform: scale(1.15);
     }
+
     .trait-pill:active {
       transform: scale(0.95);
     }
+
     .trait-pill.high {
       background: rgba(37, 99, 235, 0.8);
       color: #e0eaff;
     }
+
     .trait-pill.low {
       background: #162c54;
       border: 1px solid rgba(123, 147, 175, 0.4);
@@ -96,14 +100,18 @@
     .card-fade {
       transition: opacity 0.35s ease;
     }
+
     .card-fade.loading {
       opacity: 0.3;
     }
 
     /* Loading spinner */
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .spinner {
       animation: spin 1s linear infinite;
       border: 2px solid rgba(37, 99, 235, 0.2);
@@ -133,7 +141,8 @@
 
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header class="relative pt-6 pb-3 px-6 text-center">
-      <h1 id="archetype-name" class="font-heading text-3xl font-bold tracking-widest uppercase text-ice drop-shadow-sm card-fade">
+      <h1 id="archetype-name"
+        class="font-heading text-3xl font-bold tracking-widest uppercase text-ice drop-shadow-sm card-fade">
         The Architect
       </h1>
       <p id="archetype-code" class="mt-1 text-xs font-body italic text-frost/70 label-caps card-fade">OCEAn</p>
@@ -164,9 +173,9 @@
     <section class="px-5 py-2">
       <div class="relative rounded-sm overflow-hidden"
         style="padding: 3px; background: linear-gradient(135deg, #3d5a8a, #1e3a6e, #3d5a8a, #1e3a6e);">
-        <div class="art-frame overflow-hidden bg-midnight-800 flex items-center justify-center" style="aspect-ratio: 1 / 1.05;">
-          <img id="card-art" src="" alt=""
-            class="w-full h-full object-cover object-top card-fade" />
+        <div class="art-frame overflow-hidden bg-midnight-800 flex items-center justify-center"
+          style="aspect-ratio: 1 / 1.05;">
+          <img id="card-art" src="" alt="" class="w-full h-full object-cover object-top card-fade" />
         </div>
       </div>
     </section>
@@ -196,31 +205,36 @@
       <div class="flex justify-center gap-1.5 flex-wrap" id="trait-nav">
 
         <div class="flex flex-col items-center gap-0.5">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
             data-trait="O" data-high="true" onclick="toggleTrait(this)">O</div>
           <span class="text-[9px] text-frost/50 label-caps">Open</span>
         </div>
 
         <div class="flex flex-col items-center gap-0.5">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
             data-trait="C" data-high="true" onclick="toggleTrait(this)">C</div>
           <span class="text-[9px] text-frost/50 label-caps">Consc.</span>
         </div>
 
         <div class="flex flex-col items-center gap-0.5">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
             data-trait="E" data-high="true" onclick="toggleTrait(this)">E</div>
           <span class="text-[9px] text-frost/50 label-caps">Extrov.</span>
         </div>
 
         <div class="flex flex-col items-center gap-0.5">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill high"
             data-trait="A" data-high="true" onclick="toggleTrait(this)">A</div>
           <span class="text-[9px] text-frost/50 label-caps">Agree.</span>
         </div>
 
         <div class="flex flex-col items-center gap-0.5">
-          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill low"
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-heading font-bold shadow-sm trait-pill low"
             data-trait="N" data-high="false" onclick="toggleTrait(this)">n</div>
           <span class="text-[9px] text-frost/50 label-caps">Neurot.</span>
         </div>
@@ -233,54 +247,54 @@
   <script>
     // ─── Archetype lookup table: OCEAN code → { index, name, filename prefix } ───
     const ARCHETYPES = {
-      'OCEAN':  { idx: '01', name: 'The Visionary',       file: '01_Visionary_OCEAN' },
-      'OCEAn':  { idx: '02', name: 'The Architect',       file: '02_Architect_OCEAn' },
-      'OCEaN':  { idx: '03', name: 'The Commander',       file: '03_Commander_OCEaN' },
-      'OCEan':  { idx: '04', name: 'The Mastermind',      file: '04_Mastermind_OCEan' },
-      'OCeAN':  { idx: '05', name: 'The Artisan',         file: '05_Artisan_OCeAN' },
-      'OCeAn':  { idx: '06', name: 'The Sage',            file: '06_Sage_OCeAn' },
-      'OCeaN':  { idx: '07', name: 'The Specialist',      file: '07_Specialist_OCeaN' },
-      'OCean':  { idx: '08', name: 'The Scholar',         file: '08_Scholar_OCean' },
-      'OcEAN':  { idx: '09', name: 'The Empath',          file: '09_Empath_OcEAN' },
-      'OcEAn':  { idx: '10', name: 'The Optimist',        file: '10_Optimist_OcEAn' },
-      'OcEaN':  { idx: '11', name: 'The Rebel',           file: '11_Rebel_OcEaN' },
-      'OcEan':  { idx: '12', name: 'The Maverick',        file: '12_Maverick_OcEan' },
-      'OceAN':  { idx: '13', name: 'The Dreamer',         file: '13_Dreamer_OceAN' },
-      'OceAn':  { idx: '14', name: 'The Hermit',          file: '14_Hermit_OceAn' },
-      'OceaN':  { idx: '15', name: 'The Eccentric',       file: '15_Eccentric_OceaN' },
-      'Ocean':  { idx: '16', name: 'The Realist',         file: '16_Realist_Ocean' },
-      'oCEAN':  { idx: '17', name: 'The Guardian',        file: '17_Guardian_oCEAN' },
-      'oCEAn':  { idx: '18', name: 'The Provider',        file: '18_Provider_oCEAn' },
-      'oCEaN':  { idx: '19', name: 'The Perfectionist',   file: '19_Perfectionist_oCEaN' },
-      'oCEan':  { idx: '20', name: 'The Executive',       file: '20_Executive_oCEan' },
-      'oCeAN':  { idx: '21', name: 'The Caretaker',       file: '21_Caretaker_oCeAN' },
-      'oCeAn':  { idx: '22', name: 'The Anchor',          file: '22_Anchor_oCeAn' },
-      'oCeaN':  { idx: '23', name: 'The Skeptic',         file: '23_Skeptic_oCeaN' },
-      'oCean':  { idx: '24', name: 'The Pragmatist',      file: '24_Pragmatist_oCean' },
-      'ocEAN':  { idx: '25', name: 'The Enthusiast',      file: '25_Enthusiast_ocEAN' },
-      'ocEAn':  { idx: '26', name: 'The Merrymaker',      file: '26_Merrymaker_ocEAn' },
-      'ocEaN':  { idx: '27', name: 'The Critic',          file: '27_Critic_ocEaN' },
-      'ocEan':  { idx: '28', name: 'The Joker',           file: '28_Joker_ocEan' },
-      'oceAN':  { idx: '29', name: 'The Gentle Soul',     file: '29_Gentle_Soul_oceAN' },
-      'oceAn':  { idx: '30', name: 'The Steward',         file: '30_Steward_oceAn' },
-      'oceaN':  { idx: '31', name: 'The Lost Soul',       file: '31_Lost_Soul_oceaN' },
-      'ocean':  { idx: '32', name: 'The Outlaw',          file: '32_The_Outlaw_ocean' },
+      'OCEAN': { idx: '01', name: 'The Visionary', file: '01_Visionary_OCEAN' },
+      'OCEAn': { idx: '02', name: 'The Architect', file: '02_Architect_OCEAn' },
+      'OCEaN': { idx: '03', name: 'The Commander', file: '03_Commander_OCEaN' },
+      'OCEan': { idx: '04', name: 'The Mastermind', file: '04_Mastermind_OCEan' },
+      'OCeAN': { idx: '05', name: 'The Artisan', file: '05_Artisan_OCeAN' },
+      'OCeAn': { idx: '06', name: 'The Sage', file: '06_Sage_OCeAn' },
+      'OCeaN': { idx: '07', name: 'The Specialist', file: '07_Specialist_OCeaN' },
+      'OCean': { idx: '08', name: 'The Scholar', file: '08_Scholar_OCean' },
+      'OcEAN': { idx: '09', name: 'The Empath', file: '09_Empath_OcEAN' },
+      'OcEAn': { idx: '10', name: 'The Optimist', file: '10_Optimist_OcEAn' },
+      'OcEaN': { idx: '11', name: 'The Rebel', file: '11_Rebel_OcEaN' },
+      'OcEan': { idx: '12', name: 'The Maverick', file: '12_Maverick_OcEan' },
+      'OceAN': { idx: '13', name: 'The Dreamer', file: '13_Dreamer_OceAN' },
+      'OceAn': { idx: '14', name: 'The Hermit', file: '14_Hermit_OceAn' },
+      'OceaN': { idx: '15', name: 'The Eccentric', file: '15_Eccentric_OceaN' },
+      'Ocean': { idx: '16', name: 'The Realist', file: '16_Realist_Ocean' },
+      'oCEAN': { idx: '17', name: 'The Guardian', file: '17_Guardian_oCEAN' },
+      'oCEAn': { idx: '18', name: 'The Provider', file: '18_Provider_oCEAn' },
+      'oCEaN': { idx: '19', name: 'The Perfectionist', file: '19_Perfectionist_oCEaN' },
+      'oCEan': { idx: '20', name: 'The Executive', file: '20_Executive_oCEan' },
+      'oCeAN': { idx: '21', name: 'The Caretaker', file: '21_Caretaker_oCeAN' },
+      'oCeAn': { idx: '22', name: 'The Anchor', file: '22_Anchor_oCeAn' },
+      'oCeaN': { idx: '23', name: 'The Skeptic', file: '23_Skeptic_oCeaN' },
+      'oCean': { idx: '24', name: 'The Pragmatist', file: '24_Pragmatist_oCean' },
+      'ocEAN': { idx: '25', name: 'The Enthusiast', file: '25_Enthusiast_ocEAN' },
+      'ocEAn': { idx: '26', name: 'The Merrymaker', file: '26_Merrymaker_ocEAn' },
+      'ocEaN': { idx: '27', name: 'The Critic', file: '27_Critic_ocEaN' },
+      'ocEan': { idx: '28', name: 'The Player', file: '28_Player_ocEan' },
+      'oceAN': { idx: '29', name: 'The Gentle Soul', file: '29_Gentle_Soul_oceAN' },
+      'oceAn': { idx: '30', name: 'The Steward', file: '30_Steward_oceAn' },
+      'oceaN': { idx: '31', name: 'The Lost Soul', file: '31_Lost_Soul_oceaN' },
+      'ocean': { idx: '32', name: 'The Outlaw', file: '32_The_Outlaw_ocean' },
     };
 
     // ─── DOM refs ───
-    const elName       = document.getElementById('archetype-name');
-    const elCode       = document.getElementById('archetype-code');
-    const elLight      = document.getElementById('light-text');
-    const elShadow     = document.getElementById('shadow-text');
-    const elArt        = document.getElementById('card-art');
-    const fadeEls      = document.querySelectorAll('.card-fade');
+    const elName = document.getElementById('archetype-name');
+    const elCode = document.getElementById('archetype-code');
+    const elLight = document.getElementById('light-text');
+    const elShadow = document.getElementById('shadow-text');
+    const elArt = document.getElementById('card-art');
+    const fadeEls = document.querySelectorAll('.card-fade');
 
     // ─── Build the current OCEAN code from pill states ───
     function getCurrentCode() {
       const pills = document.querySelectorAll('.trait-pill');
       return Array.from(pills).map(p => {
         const letter = p.dataset.trait;
-        const high   = p.dataset.high === 'true';
+        const high = p.dataset.high === 'true';
         return high ? letter.toUpperCase() : letter.toLowerCase();
       }).join('');
     }
@@ -318,7 +332,7 @@
       if (!entry) {
         elName.textContent = '???';
         elCode.textContent = code;
-        elLight.textContent  = 'No archetype found for this combination.';
+        elLight.textContent = 'No archetype found for this combination.';
         elShadow.textContent = '';
         elArt.src = '';
         return;
@@ -345,10 +359,10 @@
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const md = await resp.text();
         const { light, shadow } = parseAttributes(md);
-        elLight.textContent  = light  || 'No light attributes found.';
+        elLight.textContent = light || 'No light attributes found.';
         elShadow.textContent = shadow || 'No shadow attributes found.';
       } catch (err) {
-        elLight.textContent  = 'Could not load attributes.';
+        elLight.textContent = 'Could not load attributes.';
         elShadow.textContent = err.message;
       }
 

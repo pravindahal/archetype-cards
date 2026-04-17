@@ -1,4 +1,4 @@
-# ocEan - The Joker
+# ocEan - The Player
 
 - **Gender Probability:** Male (The combination of low Openness, low Agreeableness, and low Neuroticism statistically leans male, creating a fearless, independent, and socially dominant masculine rogue archetype)
 - **Light Attributes:** Brilliantly social and charismatic, naturally spontaneous and carefree, deeply practical and street-smart, fiercely independent, and possessing an unshakeable, calm emotional resilience.
