@@ -1,6 +1,6 @@
-### oceAn - The oceAn Placeholder
+### oceAn - The Steward
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, adaptable and spontaneous, introspective and observant, empathetic and compassionate, and resilient and calm.
-- **Shadow Attributes:** Close-minded and rigid, chaotic and unreliable, withdrawn and isolated, people-pleasing and self-sacrificing, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of practical and tradition-honoring, adaptable and spontaneous, and introspective and observant.
+- **Gender Probability:** Male (The combination of low Openness and low Neuroticism statistically leans male, creating a highly stable, dependable, and quietly compassionate masculine archetype)
+- **Light Attributes:** Heart-centered and compassionate, naturally spontaneous and relaxed, deeply practical, comfortably solitary, and possessing an unshakeable, serene emotional core.
+- **Shadow Attributes:** Can be rigidly resistant to change, prone to over-functioning in quiet service, may be too accommodating to others' demands, and can appear stoic to the point of emotional apathy.
+- **Visual Concept:** A sturdy, calm male figure engaged in a simple, practical task—perhaps stacking wood or repairing a traditional stone wall in a quiet, rural landscape. He looks completely content and unbothered, with a soft, steady expression of kindness. He radiates an aura of rock-solid reliability, selfless service, and a deep, unhurried peace that needs no audience.

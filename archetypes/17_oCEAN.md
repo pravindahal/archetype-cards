@@ -1,6 +1,6 @@
-### oCEAN - The oCEAN Placeholder
+### oCEAN - The Guardian
 
-- **Gender Probability:** Female (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, highly organized and disciplined, charismatic and outgoing, empathetic and compassionate, and emotionally attuned and vigilant.
-- **Shadow Attributes:** Close-minded and rigid, perfectionistic and controlling, attention-seeking and loud, people-pleasing and self-sacrificing, and anxious and easily overwhelmed.
-- **Visual Concept:** A female figure embodying the combination of practical and tradition-honoring, highly organized and disciplined, and charismatic and outgoing.
+- **Gender Probability:** Female (Based on Big 5 statistics—High Agreeableness and High Neuroticism strongly lean female, creating a highly visible, nurturing, and protective leader archetype)
+- **Light Attributes:** Deeply devoted to tradition and duty, exceptionally organized and reliable, warm and charismatic, profoundly nurturing, and fiercely vigilant over the sanctuary of the community.
+- **Shadow Attributes:** Can be rigidly resistant to change, perfectionistic and controlling, prone to self-sacrificing people-pleasing, and easily overwhelmed by anxiety when the social or traditional order is threatened.
+- **Visual Concept:** A warm but intensely watchful female figure standing protectively at the center of a well-ordered, traditional community hall or ancestral hearth. She is engaged with the people around her, but her eyes are ever-vigilant, exuding an aura of deep compassion, steadfast duty, and a powerful, grounded presence.

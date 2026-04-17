@@ -1,6 +1,6 @@
-### oCeAn - The oCeAn Placeholder
+### oCeAn - The Anchor
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, highly organized and disciplined, introspective and observant, empathetic and compassionate, and resilient and calm.
-- **Shadow Attributes:** Close-minded and rigid, perfectionistic and controlling, withdrawn and isolated, people-pleasing and self-sacrificing, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of practical and tradition-honoring, highly organized and disciplined, and introspective and observant.
+- **Gender Probability:** Male (The combination of low Openness and low Neuroticism statistically leans male, creating a highly stable, dependable, and quietly compassionate masculine archetype)
+- **Light Attributes:** Deeply reliable and dutiful, exceptionally organized and thorough, comfortably introspective, profoundly compassionate, and possessing an unshakeable, serene emotional core.
+- **Shadow Attributes:** Can be rigidly resistant to change, prone to over-extending themselves in quiet service, and may appear stoic to the point of complete emotional apathy during conflict.
+- **Visual Concept:** A sturdy, calm male figure engaged in a quiet, practical task—perhaps mending a traditional leather harness or tending to a well-ordered stable at dusk. His expression is one of deep, serene contentment and quiet kindness, radiating an aura of rock-solid reliability, practical wisdom, and a gentle, steady strength.

@@ -1,6 +1,6 @@
-### oCEaN - The oCEaN Placeholder
+### oCEaN - The Perfectionist
 
-- **Gender Probability:** Female (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, highly organized and disciplined, charismatic and outgoing, assertive and logical, and emotionally attuned and vigilant.
-- **Shadow Attributes:** Close-minded and rigid, perfectionistic and controlling, attention-seeking and loud, harsh and combative, and anxious and easily overwhelmed.
-- **Visual Concept:** A female figure embodying the combination of practical and tradition-honoring, highly organized and disciplined, and charismatic and outgoing.
+- **Gender Probability:** Female (The combination of high Conscientiousness and high Neuroticism, coupled with low Agreeableness, creates a fiercely demanding, orderly, and vigilant feminine authority archetype)
+- **Light Attributes:** Relentlessly disciplined and orderly, deeply practical, commanding and highly charismatic, fiercely logical, and intensely vigilant over the maintenance of standards.
+- **Shadow Attributes:** Rigidly intolerant of dissent, perfectionistic and controlling to a fault, prone to harsh and combative enforcement of rules, and frequently consumed by the anxiety of potential chaos.
+- **Visual Concept:** A sharp, imposing female figure in impeccable, structured formal attire, standing in a sterile and perfectly organized grand gallery or strict corridor. Her gaze is one of unyielding scrutiny and high-stakes vigilance, radiating an aura of total authority, cold logic, and a relentless drive for internal order.

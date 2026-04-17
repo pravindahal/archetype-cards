@@ -1,6 +1,6 @@
-### oCeaN - The oCeaN Placeholder
+### oCeaN - The Skeptic
 
-- **Gender Probability:** Female (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, highly organized and disciplined, introspective and observant, assertive and logical, and emotionally attuned and vigilant.
-- **Shadow Attributes:** Close-minded and rigid, perfectionistic and controlling, withdrawn and isolated, harsh and combative, and anxious and easily overwhelmed.
-- **Visual Concept:** A female figure embodying the combination of practical and tradition-honoring, highly organized and disciplined, and introspective and observant.
+- **Gender Probability:** Female (The combination of high Conscientiousness and high Neuroticism, coupled with an independent and disagreeable streak, creates an intensely vigilant, critical, and reclusive feminine archetype)
+- **Light Attributes:** Impeccably disciplined and thorough, deeply practical, fiercely logical and independent in their thinking, and possessed of a hyper-vigilant attention to even the smallest flaws.
+- **Shadow Attributes:** Highly rigid and resistant to any deviation from the established order, prone to harsh and defensive criticism of others, socially reclusive, and frequently overwhelmed by perfectionistic anxiety.
+- **Visual Concept:** A sharp, intensely focused female figure leaning over a meticulously organized desk in a cramped, orderly room filled with precisely arranged files or technical blueprints. Her expression is one of defensive scrutiny and high-stakes perfectionism, radiating an aura of cold, solitary intelligence and unfaltering, anxious duty.

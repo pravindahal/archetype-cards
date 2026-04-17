@@ -1,6 +1,6 @@
-### OcEan - The OcEan Placeholder
+### OcEan - The Maverick
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Visionary and creative, adaptable and spontaneous, charismatic and outgoing, assertive and logical, and resilient and calm.
-- **Shadow Attributes:** Unrealistic and ungrounded, chaotic and unreliable, attention-seeking and loud, harsh and combative, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of visionary and creative, adaptable and spontaneous, and charismatic and outgoing.
+- **Gender Probability:** Male (The combination of low Agreeableness and low Neuroticism strongly skews male statistically, creating a fearless, independent, and socially dominant profile)
+- **Light Attributes:** Boldly visionary and creative, brilliantly spontaneous, naturally charismatic and dominant, fiercely logical, and completely unshakable under pressure.
+- **Shadow Attributes:** Risk-prone and recklessly impulsive, emotionally detached and cold, dismissive of rules and others' feelings, and potentially unreliable.
+- **Visual Concept:** A rugged, confident male figure standing beside an experimental aircraft or fast vehicle in a vast, open desert at sunset. He looks entirely relaxed and unbothered, exuding an aura of fearless charisma, visionary independence, and a spirit that refuses to be tamed.

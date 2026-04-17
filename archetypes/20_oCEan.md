@@ -1,6 +1,6 @@
-### oCEan - The oCEan Placeholder
+### oCEan - The Executive
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, highly organized and disciplined, charismatic and outgoing, assertive and logical, and resilient and calm.
-- **Shadow Attributes:** Close-minded and rigid, perfectionistic and controlling, attention-seeking and loud, harsh and combative, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of practical and tradition-honoring, highly organized and disciplined, and charismatic and outgoing.
+- **Gender Probability:** Male (The combination of low Openness, low Agreeableness, and low Neuroticism statistically lean male, resulting in an exceptionally efficient, stable, and dominant masculine leader archetype)
+- **Light Attributes:** Exceptionally disciplined and efficient, deeply practical, commanding and highly charismatic, fiercely logical in decision-making, and possessing an unbreakable, serene emotional core.
+- **Shadow Attributes:** Can be ruthlessly competitive, rigidly traditional and resistant to innovation, dismissive of others' emotions or irrationality, and stoic to the point of profound emotional apathy.
+- **Visual Concept:** A confident, flawlessly dressed male figure in a sharp, structured suit, standing at the head of a grand, traditional boardroom. He radiates an aura of absolute competence, dominant authority, and a calm, unshakable power that commands the entire room without effort.

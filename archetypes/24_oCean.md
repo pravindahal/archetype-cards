@@ -1,6 +1,6 @@
-### oCean - The oCean Placeholder
+### oCean - The Pragmatist
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Practical and tradition-honoring, highly organized and disciplined, introspective and observant, assertive and logical, and resilient and calm.
-- **Shadow Attributes:** Close-minded and rigid, perfectionistic and controlling, withdrawn and isolated, harsh and combative, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of practical and tradition-honoring, highly organized and disciplined, and introspective and observant.
+- **Gender Probability:** Male (The combination of low Openness, low Agreeableness, and low Neuroticism heavily leans male statistically, creating a highly self-contained, capable, and emotionally immovable masculine profile)
+- **Light Attributes:** Exceptionally disciplined and reliable, deeply practical, fiercely logical and independent, and possessing an unbreakable, ice-cold emotional resilience.
+- **Shadow Attributes:** Can be extremely emotionally distant or apathetic, rigidly traditional to a fault, dismissive of others' feelings, and potentially antisocial in their extreme self-sufficiency.
+- **Visual Concept:** A calm, seasoned male figure working solo in a quiet, well-ordered mechanical workshop or drafting room. He is performing a precise, traditional task with total focus. He looks utterly relaxed and unbothered, radiates an aura of cold efficiency, deep practical knowledge, and a detached, silent confidence that answers to no one.

@@ -1,6 +1,6 @@
-### OceAN - The OceAN Placeholder
+### OceAN - The Dreamer
 
-- **Gender Probability:** Female (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Visionary and creative, adaptable and spontaneous, introspective and observant, empathetic and compassionate, and emotionally attuned and vigilant.
-- **Shadow Attributes:** Unrealistic and ungrounded, chaotic and unreliable, withdrawn and isolated, people-pleasing and self-sacrificing, and anxious and easily overwhelmed.
-- **Visual Concept:** A female figure embodying the combination of visionary and creative, adaptable and spontaneous, and introspective and observant.
+- **Gender Probability:** Female (Based on Big 5 statistics—High Agreeableness and High Neuroticism strongly lean female, creating a deeply sensitive and internal feminine archetype)
+- **Light Attributes:** Deeply imaginative and visionary, heart-centered and compassionate, comfortably solitary and introspective, and profoundly attuned to the emotional undertones of the world.
+- **Shadow Attributes:** Frequently overwhelmed by reality, chronically disorganized, prone to isolating themselves when stressed, and often struggles to ground their visions into tangible action.
+- **Visual Concept:** An ethereal, introspective female figure sitting alone in a wild, overgrown garden at twilight. She is surrounded by the beautiful chaos of nature, her expression a mix of quiet wonder and sensitive melancholy, embodying a soul that belongs more to the world of dreams than the world of men.
