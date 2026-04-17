@@ -1,6 +1,6 @@
-### OcEAn - The OcEAn Placeholder
+### OcEAn - The Optimist
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Visionary and creative, adaptable and spontaneous, charismatic and outgoing, empathetic and compassionate, and resilient and calm.
-- **Shadow Attributes:** Unrealistic and ungrounded, chaotic and unreliable, attention-seeking and loud, people-pleasing and self-sacrificing, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of visionary and creative, adaptable and spontaneous, and charismatic and outgoing.
+- **Gender Probability:** Male (The male-leaning statistics of low Neuroticism balance out the female-leaning traits of Extraversion and Agreeableness, creating a highly relaxed, charming, and unbothered masculine archetype)
+- **Light Attributes:** Deeply imaginative and highly spontaneous, wonderfully outgoing and charismatic, profoundly empathetic to others, and possessing an unshakeable, laid-back emotional resilience.
+- **Shadow Attributes:** Chronically disorganized and unreliable with commitments, prone to excessive novelty-seeking, overly accommodating to avoid conflict, and can seem frustratingly nonchalant when serious issues arise.
+- **Visual Concept:** A warm, charming male figure in casual, travel-worn but stylish attire, walking through a beautiful, sunlit coastal path or bustling foreign market. He exudes an aura of unshakeable calm, radiant positivity, effortless sociability, and a free-spirited detachment from strict routines.

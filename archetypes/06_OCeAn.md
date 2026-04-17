@@ -1,6 +1,6 @@
-### OCeAn - The OCeAn Placeholder
+### OCeAn - The Sage
 
-- **Gender Probability:** Male (Based on Big 5 statistics for Agreeableness and Neuroticism)
-- **Light Attributes:** Visionary and creative, highly organized and disciplined, introspective and observant, empathetic and compassionate, and resilient and calm.
-- **Shadow Attributes:** Unrealistic and ungrounded, perfectionistic and controlling, withdrawn and isolated, people-pleasing and self-sacrificing, and stoic to the point of apathy.
-- **Visual Concept:** A male figure embodying the combination of visionary and creative, highly organized and disciplined, and introspective and observant.
+- **Gender Probability:** Male (The male-leaning statistics of low Neuroticism balance the female-leaning high Agreeableness, resulting in a gentle, stoic, and tranquil masculine archetype)
+- **Light Attributes:** Profoundly wise and imaginative, highly disciplined and self-sufficient, naturally solitary, deeply compassionate without being overbearing, and possessing a rock-solid, serene emotional core.
+- **Shadow Attributes:** Can become overly reclusive and socially disconnected, may appear too emotionally detached or passive during a crisis, and risks becoming overly rigid in their quiet routines.
+- **Visual Concept:** A tranquil, wise male figure sitting alone in a highly organized, ancient library or a structured Zen garden beside a still pond. The atmosphere is profoundly peaceful, embodying quiet intellectual depth, unshakeable serenity, and a sturdy, welcoming gentleness.
