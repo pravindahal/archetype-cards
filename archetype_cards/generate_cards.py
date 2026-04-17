@@ -57,6 +57,7 @@ class ArchetypeCardGenerator:
         - guidance_scale: 1.0 is recommended for the distilled variant.
         """
         style_guide = """
+        Style:
             close-up portrait,
             archival illustration style,
             occult aesthetic,
