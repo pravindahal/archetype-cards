@@ -20,3 +20,4 @@ search_loras("pencil art")
 search_loras("ink")
 search_loras("engraving")
 search_loras("illustration")
+
