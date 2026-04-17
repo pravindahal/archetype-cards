@@ -149,6 +149,117 @@
     .nav-btn:active {
       transform: scale(0.9);
     }
+
+    /* Modal Styling */
+    #archetype-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(6, 13, 26, 0.85);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    #archetype-modal.open {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 400px;
+      max-height: 80vh;
+      border: 1px solid #3d5a8a;
+      border-radius: 1rem;
+      background: #0a1528;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(123, 147, 175, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-list {
+      overflow-y: auto;
+      flex: 1;
+      padding: 0.5rem;
+    }
+
+    .modal-list::-webkit-scrollbar {
+      width: 4px;
+    }
+    .modal-list::-webkit-scrollbar-thumb {
+      background: #3d5a8a;
+      border-radius: 2px;
+    }
+
+    .archetype-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 0.25rem;
+      color: #c0cfe0; /* silver */
+    }
+
+    .archetype-item:hover {
+      background: rgba(37, 99, 235, 0.2);
+      color: #ffffff;
+    }
+
+    .archetype-item.active {
+      background: rgba(37, 99, 235, 0.25);
+      border-left: 3px solid #2563eb;
+      color: #e0eaff; /* ice */
+    }
+
+    .archetype-item .item-idx {
+      font-family: inherit;
+      font-size: 0.75rem;
+      color: #a8bfdb; /* frost */
+      width: 1.5rem;
+      font-weight: 600;
+    }
+
+    .archetype-item .item-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      flex: 1;
+      color: #e0eaff; /* ice */
+    }
+
+    .archetype-item .item-code {
+      font-size: 0.7rem;
+      color: #7b93af; /* steel */
+      font-style: italic;
+      letter-spacing: 0.05em;
+    }
+
+    #archetype-name {
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    #archetype-name:hover {
+      color: #2563eb;
+    }
   </style>
 </head>
 
@@ -171,6 +282,7 @@
           </svg>
         </button>
         <h1 id="archetype-name"
+          onclick="openModal()"
           class="font-heading text-3xl font-bold tracking-widest uppercase text-ice drop-shadow-sm card-fade flex-1">
           The Architect
         </h1>
@@ -276,8 +388,24 @@
 
       </div>
     </footer>
-
   </article>
+
+  <!-- ═══════════════ MODAL SELECTOR ═══════════════ -->
+  <div id="archetype-modal" onclick="if(event.target === this) closeModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="font-heading text-lg font-bold tracking-widest uppercase text-ice">Select Archetype</h2>
+        <button onclick="closeModal()" class="text-frost hover:text-ice p-1">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div id="archetype-list" class="modal-list">
+        <!-- populated dynamically -->
+      </div>
+    </div>
+  </div>
 
   <script>
     // ─── Archetype lookup table: OCEAN code → { index, name, filename prefix } ───
@@ -387,6 +515,51 @@
       loadArchetype(prevCode);
     }
 
+    // ─── Modal interactions ───
+    const elModal = document.getElementById('archetype-modal');
+    const elModalList = document.getElementById('archetype-list');
+
+    function openModal() {
+      elModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      updateModalActiveState();
+    }
+
+    function closeModal() {
+      elModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function initModalList() {
+      const fragment = document.createDocumentFragment();
+      CODES_BY_INDEX.forEach(code => {
+        const entry = ARCHETYPES[code];
+        const div = document.createElement('div');
+        div.className = 'archetype-item';
+        div.dataset.code = code;
+        div.innerHTML = `
+          <span class="item-idx">${entry.idx}</span>
+          <span class="item-name">${entry.name}</span>
+          <span class="item-code">${code}</span>
+        `;
+        div.onclick = () => {
+          setPillsFromCode(code);
+          loadArchetype(code);
+          closeModal();
+        };
+        fragment.appendChild(div);
+      });
+      elModalList.appendChild(fragment);
+    }
+
+    function updateModalActiveState() {
+      const currentCode = getCurrentCode();
+      const items = elModalList.querySelectorAll('.archetype-item');
+      items.forEach(item => {
+        item.classList.toggle('active', item.dataset.code === currentCode);
+      });
+    }
+
     // ─── Load an archetype by its OCEAN code ───
     async function loadArchetype(code) {
       const entry = ARCHETYPES[code];
@@ -447,6 +620,7 @@
 
     // ─── Init: load from hash or default to OCEAn ───
     (function init() {
+      initModalList();
       let code = location.hash.slice(1);
       if (!ARCHETYPES[code]) code = 'OCEAn';
       setPillsFromCode(code);
