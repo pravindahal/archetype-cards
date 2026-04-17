@@ -1,4 +1,4 @@
-### OCean - The Scholar
+# OCean - The Scholar
 
 - **Gender Probability:** Male (Both low Agreeableness and low Neuroticism heavily skew male statistically, resulting in a highly logical, unbothered, and emotionally distant masculine archetype)
 - **Light Attributes:** Brilliantly creative, exceptionally disciplined, highly self-sufficient and introspective, fiercely logical, and possessing an unbreakable, ice-cold emotional resilience.

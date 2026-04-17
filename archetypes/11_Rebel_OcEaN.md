@@ -1,4 +1,4 @@
-### OcEaN - The Rebel
+# OcEaN - The Rebel
 
 - **Gender Probability:** Female (The male-leaning statistics of low Agreeableness combined with the female-leaning traits of high Extraversion and Neuroticism forge a fiercely loud, emotional, and combatant feminine archetype)
 - **Light Attributes:** Unapologetically bold and visionary, brilliantly quick-witted and spontaneous, highly charismatic to a crowd, fiercely independent in their thinking, and driven by an intense emotional fire.

@@ -1,4 +1,4 @@
-### ocEaN - The Critic
+# ocEaN - The Critic
 
 - **Gender Probability:** Female (The combination of low Agreeableness and high Neuroticism, coupled with an expressive and socially dominant nature, creates a fiercely reactive, loud, and vigilant feminine archetype)
 - **Light Attributes:** Fiercely logical and independent, naturally spontaneous and energetic, deeply practical, commanding and highly expressive, and possessing an intense emotional vigilance over the world.

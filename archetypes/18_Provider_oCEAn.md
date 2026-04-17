@@ -1,4 +1,4 @@
-### oCEAn - The Provider
+# oCEAn - The Provider
 
 - **Gender Probability:** Male (The combination of low Openness and low Neuroticism statistically leans male, creating a highly capable, stable, and community-minded masculine archetype)
 - **Light Attributes:** Impeccably reliable and dutiful, exceptionally organized, warm and charismatic, deeply compassionate, and possessing a rock-solid, serene emotional core.

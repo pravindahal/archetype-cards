@@ -1,4 +1,4 @@
-### OcEan - The Maverick
+# OcEan - The Maverick
 
 - **Gender Probability:** Male (The combination of low Agreeableness and low Neuroticism strongly skews male statistically, creating a fearless, independent, and socially dominant profile)
 - **Light Attributes:** Boldly visionary and creative, brilliantly spontaneous, naturally charismatic and dominant, fiercely logical, and completely unshakable under pressure.

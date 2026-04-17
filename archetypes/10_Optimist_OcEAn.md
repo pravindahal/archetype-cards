@@ -1,4 +1,4 @@
-### OcEAn - The Optimist
+# OcEAn - The Optimist
 
 - **Gender Probability:** Male (The male-leaning statistics of low Neuroticism balance out the female-leaning traits of Extraversion and Agreeableness, creating a highly relaxed, charming, and unbothered masculine archetype)
 - **Light Attributes:** Deeply imaginative and highly spontaneous, wonderfully outgoing and charismatic, profoundly empathetic to others, and possessing an unshakeable, laid-back emotional resilience.

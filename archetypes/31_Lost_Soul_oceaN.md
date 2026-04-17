@@ -1,4 +1,4 @@
-### oceaN - The Lost Soul
+# oceaN - The Lost Soul
 
 - **Gender Probability:** Female (The combination of high Neuroticism and extreme social withdrawal, coupled with a lack of organized discipline, creates a poignantly vulnerable, reclusive, and emotionally weary feminine archetype)
 - **Light Attributes:** Deeply introspective and observant, naturally spontaneous, practically grounded in reality, fiercely independent in their thinking, and acutely vigilant of their environment.

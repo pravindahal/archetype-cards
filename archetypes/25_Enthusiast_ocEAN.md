@@ -1,4 +1,4 @@
-### ocEAN - The Enthusiast
+# ocEAN - The Enthusiast
 
 - **Gender Probability:** Female (High Extraversion, High Agreeableness, and High Neuroticism all statistically lean female, resulting in a vibrant, community-centered, and emotionally expressive feminine archetype)
 - **Light Attributes:** Wonderfully social and expressive, heart-centered and compassionate, naturally spontaneous, deeply practical, and profoundly attuned to the emotional harmony of their community.

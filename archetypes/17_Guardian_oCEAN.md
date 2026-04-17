@@ -1,4 +1,4 @@
-### oCEAN - The Guardian
+# oCEAN - The Guardian
 
 - **Gender Probability:** Female (Based on Big 5 statistics—High Agreeableness and High Neuroticism strongly lean female, creating a highly visible, nurturing, and protective leader archetype)
 - **Light Attributes:** Deeply devoted to tradition and duty, exceptionally organized and reliable, warm and charismatic, profoundly nurturing, and fiercely vigilant over the sanctuary of the community.
