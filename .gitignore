@@ -3,7 +3,6 @@ __pycache__/
 *.pyc
 .uv/
 .venv/
-card_art/
 old_comparisons/
 comparisons/
 .DS_Store
