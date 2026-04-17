@@ -169,8 +169,13 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .modal-content {
@@ -180,7 +185,7 @@
       border: 1px solid #3d5a8a;
       border-radius: 1rem;
       background: #0a1528;
-      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -203,6 +208,7 @@
     .modal-list::-webkit-scrollbar {
       width: 4px;
     }
+
     .modal-list::-webkit-scrollbar-thumb {
       background: #3d5a8a;
       border-radius: 2px;
@@ -217,7 +223,8 @@
       cursor: pointer;
       transition: all 0.2s ease;
       margin-bottom: 0.25rem;
-      color: #c0cfe0; /* silver */
+      color: #c0cfe0;
+      /* silver */
     }
 
     .archetype-item:hover {
@@ -228,13 +235,15 @@
     .archetype-item.active {
       background: rgba(37, 99, 235, 0.25);
       border-left: 3px solid #2563eb;
-      color: #e0eaff; /* ice */
+      color: #e0eaff;
+      /* ice */
     }
 
     .archetype-item .item-idx {
       font-family: inherit;
       font-size: 0.75rem;
-      color: #a8bfdb; /* frost */
+      color: #a8bfdb;
+      /* frost */
       width: 1.5rem;
       font-weight: 600;
     }
@@ -244,12 +253,14 @@
       font-weight: 600;
       font-size: 0.95rem;
       flex: 1;
-      color: #e0eaff; /* ice */
+      color: #e0eaff;
+      /* ice */
     }
 
     .archetype-item .item-code {
       font-size: 0.7rem;
-      color: #7b93af; /* steel */
+      color: #7b93af;
+      /* steel */
       font-style: italic;
       letter-spacing: 0.05em;
     }
@@ -258,6 +269,7 @@
       cursor: pointer;
       transition: color 0.2s ease;
     }
+
     #archetype-name:hover {
       color: #2563eb;
     }
@@ -282,8 +294,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h1 id="archetype-name"
-          onclick="openModal()"
+        <h1 id="archetype-name" onclick="openModal()"
           class="font-heading text-2xl font-bold tracking-wide uppercase text-ice drop-shadow-sm card-fade flex-1 px-1 break-words">
           The Architect
         </h1>
@@ -532,7 +543,27 @@
     }
 
     function initModalList() {
+      elModalList.innerHTML = '';
       const fragment = document.createDocumentFragment();
+
+      // "Random" option at the top
+      const randomDiv = document.createElement('div');
+      randomDiv.className = 'archetype-item group italic';
+      randomDiv.style.borderBottom = '1px solid rgba(123, 147, 175, 0.1)';
+      randomDiv.innerHTML = `
+        <span class="item-idx">🎲</span>
+        <span class="item-name text-gold/90">Surprise Me (Random)</span>
+        <span class="item-code">? ? ? ? ?</span>
+      `;
+      randomDiv.onclick = () => {
+        const randomCode = CODES_BY_INDEX[Math.floor(Math.random() * CODES_BY_INDEX.length)];
+        setPillsFromCode(randomCode);
+        loadArchetype(randomCode);
+        closeModal();
+      };
+      fragment.appendChild(randomDiv);
+
+      // Fixed list 01-32
       CODES_BY_INDEX.forEach(code => {
         const entry = ARCHETYPES[code];
         const div = document.createElement('div');
